@@ -4,978 +4,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Zimbabwe Pride - Motorcycles for Loan</title>
-
+    <title>EcoCash</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html,
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #eeeeee;
-            color: #111;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
-        .poster {
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: clamp(10px, 2vw, 20px);
+        }
+        
+        header {
             width: 100%;
-            max-width: 930px;
-            margin: auto;
-            background: #fff;
-            overflow: hidden;
-        }
-        /* =========================
-   HEADER
-========================= */
-        
-        .header {
+            max-width: 480px;
+            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 20px);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 15px 25px 5px;
-            gap: 25px;
+            margin-bottom: clamp(5px, 2vw, 10px);
         }
         
-        .flag {
-            width: 48%;
-            max-width: 470px;
+        .menu-btn {
+            font-size: clamp(24px, 6vw, 28px);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
         }
         
-        .flag img {
-            width: 100%;
-            display: block;
+        .logo {
+            font-size: clamp(24px, 6vw, 28px);
+            font-weight: 700;
         }
         
-        .header-title {
-            flex: 1;
-            text-align: center;
-            font-weight: 900;
-            font-style: italic;
-            line-height: 1;
+        .logo-eco {
+            color: #0066ff;
         }
         
-        .header-title .green {
-            color: #08751e;
-            font-size: clamp(25px, 4vw, 48px);
+        .logo-cash {
+            color: #ff0000;
         }
         
-        .header-title .red {
-            color: #d00000;
-            font-size: clamp(30px, 5vw, 55px);
-            margin-top: 5px;
-        }
-        /* Decorative stripes */
-        
-        .stripes {
-            height: 35px;
-            margin: 0 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stripes::before {
-            content: "";
-            position: absolute;
-            width: 80%;
-            height: 6px;
-            background: #08751e;
-            right: 0;
-            top: 5px;
-            transform: skewX(-30deg);
-        }
-        
-        .stripes::after {
-            content: "";
-            position: absolute;
-            width: 70%;
-            height: 5px;
-            background: #d00000;
-            right: 0;
-            top: 17px;
-            transform: skewX(-30deg);
-        }
-        /* =========================
-   MAIN HEADING
-========================= */
-        
-        .offer {
-            text-align: center;
-            padding: 5px 20px 0;
-        }
-        
-        .offer-small {
-            font-size: 25px;
-            font-weight: 900;
-            font-style: italic;
-        }
-        
-        .offer-small::before,
-        .offer-small::after {
-            content: "━";
-            margin: 0 15px;
-            color: #d6a800;
-        }
-        
-        .main-title {
-            margin-top: 3px;
-            color: #d00000;
-            font-size: clamp(45px, 8vw, 82px);
-            font-weight: 1000;
-            font-style: italic;
-            letter-spacing: -3px;
-            text-shadow: 2px 2px 0 #222, 4px 4px 0 #fff;
-        }
-        
-        .loan-title {
-            display: inline-block;
-            background: #08751e;
-            color: white;
-            padding: 5px 40px;
-            font-size: clamp(35px, 6vw, 65px);
-            font-weight: 1000;
-            font-style: italic;
-            transform: skewX(-8deg);
-        }
-        
-        .slogan {
-            margin-top: 7px;
-            font-size: clamp(17px, 3vw, 25px);
-            font-weight: 900;
-            font-style: italic;
-        }
-        
-        .slogan::before,
-        .slogan::after {
-            content: "★";
-            color: #d00000;
-            margin: 0 10px;
-        }
-        /* =========================
-   LOAN OPTIONS
-========================= */
-        
-        .loan-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            padding: 10px 30px 5px;
-        }
-        
-        .loan-card {
-            border: 3px solid #08751e;
-            border-radius: 14px;
-            overflow: hidden;
-            text-align: center;
-            background: #fff;
-        }
-        
-        .loan-card.red {
-            border-color: #c40000;
-        }
-        
-        .loan-card.blue {
-            border-color: #174ca4;
-        }
-        
-        .card-heading {
-            color: white;
-            padding: 8px;
-            font-size: clamp(25px, 4vw, 42px);
-            font-weight: 900;
-            font-style: italic;
-            border-radius: 10px;
-            margin: -1px -1px 5px;
-        }
-        
-        .green-heading {
-            background: #08751e;
-        }
-        
-        .red-heading {
-            background: #c40000;
-        }
-        
-        .blue-heading {
-            background: #174ca4;
-        }
-        
-        .deposit-label,
-        .installment-label {
-            font-weight: 900;
-            font-size: 18px;
-        }
-        
-        .deposit {
-            font-size: clamp(34px, 5vw, 50px);
-            font-weight: 1000;
-        }
-        
-        .green-text {
-            color: #08751e;
-        }
-        
-        .red-text {
-            color: #c40000;
-        }
-        
-        .blue-text {
-            color: #174ca4;
-        }
-        
-        .percent {
-            display: inline-flex;
-            width: 50px;
-            height: 50px;
-            background: #d00000;
-            color: white;
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 18px;
-            vertical-align: middle;
-            margin-left: 5px;
-        }
-        
-        .divider {
-            border-top: 2px dashed #aaa;
-            margin: 10px 15px;
-        }
-        
-        .monthly {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 1000;
-        }
-        
-        .period {
-            color: white;
-            margin: 5px 15px 12px;
-            padding: 5px;
-            font-size: 18px;
-            font-weight: 900;
-        }
-        
-        .green-period {
-            background: #08751e;
-        }
-        
-        .red-period {
-            background: #c40000;
-        }
-        
-        .blue-period {
-            background: #174ca4;
-        }
-        /* =========================
-   MONTHLY INSTALLMENTS BAR
-========================= */
-        
-        .section-title {
-            margin: 8px 30px;
-            background: #111;
-            color: white;
-            text-align: center;
-            font-size: clamp(23px, 4vw, 40px);
-            font-weight: 1000;
-            font-style: italic;
-            padding: 7px;
-            position: relative;
-        }
-        
-        .section-title::before,
-        .section-title::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 65px;
-            background: linear-gradient( 60deg, #111 25%, #d00000 26%, #d00000 45%, #f0c400 46%, #f0c400 65%, #08751e 66%, #08751e 80%, #111 81%);
-        }
-        
-        .section-title::before {
-            left: 0;
-        }
-        
-        .section-title::after {
-            right: 0;
-        }
-        /* =========================
-   INSTALLMENT ROWS
-========================= */
-        
-        .installments {
-            padding: 0 30px;
-        }
-        
-        .installment-row {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr 1fr;
-            align-items: center;
-            border: 2px solid #08751e;
-            border-radius: 13px;
-            margin-bottom: 7px;
-            min-height: 48px;
-            overflow: hidden;
-            font-weight: 900;
-        }
-        
-        .installment-row.red-row {
-            border-color: #c40000;
-        }
-        
-        .installment-row.blue-row {
-            border-color: #174ca4;
-        }
-        
-        .bike-mini {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-left: 12px;
-        }
-        
-        .mini-circle {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 2px solid currentColor;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-        
-        .row-value {
-            text-align: center;
-        }
-        
-        .row-label {
-            display: block;
-            font-size: 12px;
-        }
-        
-        .row-money {
-            font-size: 23px;
-        }
-        
-        .row-period {
-            background: #08751e;
-            color: white;
-            text-align: center;
-            padding: 10px 5px;
-            font-size: 18px;
-        }
-        
-        .red-row .row-period {
-            background: #c40000;
-        }
-        
-        .blue-row .row-period {
-            background: #174ca4;
-        }
-        
-        .row-month {
-            font-size: 25px;
-            text-align: center;
-        }
-        /* =========================
-   MOTORCYCLES
-========================= */
-        
-        .motorcycles {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 5px 30px;
-        }
-        
-        .motorcycle-card {
-            border: 2px solid #08751e;
-            border-radius: 12px;
-            text-align: center;
-            overflow: hidden;
+        .card {
             background: white;
-        }
-        
-        .motorcycle-card.red-bike {
-            border-color: #c40000;
-        }
-        
-        .motorcycle-card.blue-bike {
-            border-color: #174ca4;
-        }
-        
-        .motorcycle-card a {
-            display: block;
-            text-decoration: none;
-        }
-        
-        .motorcycle-card img {
+            border-radius: clamp(16px, 5vw, 24px);
+            padding: clamp(24px, 6vw, 32px) clamp(20px, 5vw, 28px);
             width: 100%;
-            height: 190px;
-            object-fit: contain;
-            display: block;
-            padding: 5px;
-            background: #fff;
+            max-width: 480px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
-        .cc-label {
-            display: inline-block;
-            color: white;
-            padding: 5px 30px;
-            margin: 0 0 8px;
+        @media (min-width: 769px) {
+            body {
+                padding: clamp(15px, 3vw, 20px);
+                justify-content: center;
+            }
+            .card {
+                padding: clamp(30px, 5vw, 40px) clamp(25px, 4vw, 30px);
+            }
+        }
+        
+        .title {
+            font-size: clamp(22px, 5vw, 26px);
+            font-weight: 700;
+            color: #333;
+            margin-bottom: clamp(4px, 1.5vw, 6px);
+        }
+        
+        .subtitle {
+            font-size: clamp(13px, 3.5vw, 15px);
+            color: #777;
+            margin-bottom: clamp(18px, 5vw, 24px);
+        }
+        
+        .calc-section {
+            background: #f8f9ff;
+            border-radius: clamp(15px, 4vw, 20px);
+            padding: clamp(18px, 5vw, 24px);
+            margin-bottom: clamp(18px, 5vw, 24px);
+            text-align: left;
+        }
+        
+        .calc-title {
+            font-size: clamp(16px, 4vw, 19px);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: clamp(18px, 5vw, 24px);
+            color: #333;
+        }
+        
+        .input-group {
+            margin-bottom: clamp(24px, 7vw, 32px);
+        }
+        
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: clamp(8px, 2vw, 10px);
+            font-weight: 600;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+        
+        .input-label {
+            color: #333;
+        }
+        
+        .input-value {
+            color: #4361ee;
+            font-weight: 700;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
             border-radius: 4px;
-            font-size: 22px;
-            font-weight: 1000;
+            background: #e0e0e0;
+            outline: none;
         }
         
-        .green-cc {
-            background: #08751e;
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: clamp(24px, 6vw, 28px);
+            height: clamp(24px, 6vw, 28px);
+            border-radius: 50%;
+            background: #4361ee;
+            cursor: pointer;
         }
         
-        .red-cc {
-            background: #c40000;
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: clamp(12px, 3vw, 14px);
+            margin-top: clamp(6px, 2vw, 8px);
         }
         
-        .blue-cc {
-            background: #174ca4;
+        .payment-box {
+            background: #f0f4ff;
+            padding: clamp(14px, 4vw, 18px);
+            border-radius: clamp(12px, 4vw, 16px);
+            text-align: center;
         }
-        /* =========================
-   FEATURES
-========================= */
+        
+        .payment-label {
+            display: block;
+            color: #666;
+            margin-bottom: clamp(6px, 2vw, 8px);
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        
+        .payment-amount {
+            font-size: clamp(26px, 7vw, 30px);
+            font-weight: 700;
+            color: #4361ee;
+        }
+        
+        .apply-btn {
+            width: 100%;
+            padding: clamp(12px, 4vw, 16px);
+            background: linear-gradient(to right, #4361ee, #7209b7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(16px, 4vw, 18px);
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: clamp(18px, 5vw, 24px);
+        }
         
         .features {
-            margin: 5px 30px;
-            background: #111;
-            color: white;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-radius: 5px;
-            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: clamp(10px, 3vw, 20px);
         }
         
         .feature {
             text-align: center;
-            padding: 10px 5px;
-            border-right: 1px solid #777;
-        }
-        
-        .feature:last-child {
-            border-right: none;
+            color: #777;
+            font-size: clamp(11px, 3vw, 13px);
+            flex: 1 0 100px;
         }
         
         .feature-icon {
-            width: 45px;
-            height: 45px;
-            margin: auto;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
+            font-size: clamp(32px, 8vw, 36px);
+            margin-bottom: clamp(6px, 2vw, 8px);
         }
         
-        .feature:nth-child(1) .feature-icon {
-            background: #08751e;
-        }
-        
-        .feature:nth-child(2) .feature-icon {
-            background: #d00000;
-        }
-        
-        .feature:nth-child(3) .feature-icon {
-            background: #f0c400;
-        }
-        
-        .feature:nth-child(4) .feature-icon {
-            background: #08751e;
-        }
-        
-        .feature h3 {
-            font-size: 16px;
-            margin-top: 4px;
-        }
-        
-        .feature p {
-            font-size: 12px;
-        }
-        /* =========================
-   BOTTOM CTA
-========================= */
-        
-        .cta {
-            position: relative;
-            background: #f2c500;
-            margin: 5px 30px 15px;
+        footer {
+            padding: clamp(10px, 3vw, 15px);
+            color: #aaa;
+            font-size: clamp(11px, 3vw, 13px);
             text-align: center;
-            padding: 8px 20px;
-            clip-path: polygon( 3% 0, 97% 0, 100% 50%, 97% 100%, 3% 100%, 0 50%);
-        }
-        
-        .cta-main {
-            font-size: clamp(24px, 5vw, 42px);
-            font-weight: 1000;
-            font-style: italic;
-        }
-        
-        .cta-main span {
-            color: #c40000;
-        }
-        
-        .approved {
-            display: inline-block;
-            background: #c40000;
-            color: white;
-            padding: 5px 18px;
-            transform: rotate(-5deg);
-            font-size: 20px;
-            font-weight: 1000;
-            margin-left: 10px;
-        }
-        /* =========================
-   BUTTON
-========================= */
-        
-        .apply-btn {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            border: none;
-            background: #08751e;
-            color: white;
-            padding: 14px 25px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 900;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
-            z-index: 100;
-        }
-        
-        .apply-btn:hover {
-            transform: scale(1.05);
-        }
-        /* =========================
-   RESPONSIVE
-========================= */
-        
-        @media (max-width: 700px) {
-            .header {
-                flex-direction: column;
-                gap: 5px;
-                padding: 10px;
-            }
-            .flag {
-                width: 90%;
-            }
-            .header-title {
-                width: 100%;
-            }
-            .loan-options {
-                grid-template-columns: 1fr;
-                padding: 10px 15px;
-                gap: 12px;
-            }
-            .loan-card {
-                max-width: 400px;
-                width: 100%;
-                margin: auto;
-            }
-            .installments {
-                padding: 0 15px;
-            }
-            .installment-row {
-                grid-template-columns: 1fr 1fr;
-                padding: 5px;
-            }
-            .bike-mini {
-                grid-column: span 2;
-                justify-content: center;
-                padding: 3px;
-            }
-            .row-period {
-                border-radius: 5px;
-            }
-            .motorcycles {
-                grid-template-columns: 1fr;
-                padding: 5px 15px;
-            }
-            .motorcycle-card img {
-                height: 230px;
-            }
-            .features {
-                grid-template-columns: 2fr 2fr;
-                margin: 5px 15px;
-            }
-            .feature {
-                border-bottom: 1px solid #777;
-            }
-            .section-title {
-                margin: 8px 15px;
-            }
-            .cta {
-                margin: 5px 15px 15px;
-            }
+            flex-shrink: 0;
         }
     </style>
 </head>
 
 <body>
-
-    <div class="poster">
-
-        <!-- HEADER -->
-        <header class="header">
-
-            <div class="flag">
-                <!-- Zimbabwe flag -->
-                <svg viewBox="0 0 500 300" width="100%" xmlns="http://www.w3.org/2000/svg">
-                <rect width="500" height="300" fill="#006400"/>
-                <path d="M0 50H500V100H0Z" fill="#FFD200"/>
-                <path d="M0 100H500V150H0Z" fill="#D40000"/>
-                <path d="M0 150H500V200H0Z" fill="#000"/>
-                <path d="M0 200H500V250H0Z" fill="#D40000"/>
-                <path d="M0 250H500V300H0Z" fill="#FFD200"/>
-
-                <polygon points="0,0 0,300 210,150" fill="white"/>
-                <polygon points="0,45 32,150 0,255" fill="#D40000"/>
-
-                <polygon points="32,80 50,135 108,135 61,168 78,225 32,190 -14,225 3,168 -44,135 14,135"
-                         fill="#D40000"/>
-
-                <circle cx="32" cy="150" r="18" fill="#FFD200"/>
-                <path d="M32 105 L43 145 L70 150 L45 160 L38 195 L25 165 L5 150 L25 140Z"
-                      fill="#8B5A00"/>
-            </svg>
+    <header>
+        <button class="menu-btn">☰</button>
+        <div class="logo"><span class="logo-eco">Eco</span><span class="logo-cash">Cash</span></div>
+        <div></div>
+    </header>
+    <main class="card">
+        <div>
+            <h1 class="title">Get Your Loan Approved Fast</h1>
+            <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+            <div class="calc-section">
+                <h2 class="calc-title">Loan Calculator</h2>
+                <div class="input-group">
+                    <div class="input-header">
+                        <span class="input-label">Loan Amount</span>
+                        <span class="input-value" id="amountValue">$5,000</span>
+                    </div>
+                    <input type="range" class="slider" min="100" max="5000" value="5000" id="amountSlider">
+                    <div class="range-labels"><span>$100</span><span>$5,000</span></div>
+                </div>
+                <div class="input-group">
+                    <div class="input-header">
+                        <span class="input-label">Loan Term</span>
+                        <span class="input-value" id="termValue">12 months</span>
+                    </div>
+                    <input type="range" class="slider" min="6" max="60" step="6" value="12" id="termSlider">
+                    <div class="range-labels"><span>6 months</span><span>60 months</span></div>
+                </div>
+                <div class="payment-box">
+                    <span class="payment-label">Monthly Payment</span>
+                    <span class="payment-amount" id="paymentAmount">$450.00</span>
+                </div>
             </div>
-
-            <div class="header-title">
-                <div class="green">ZIMBABWE PRIDE,</div>
-                <div class="red">YOUR RIDE!</div>
-            </div>
-
-        </header>
-
-        <div class="stripes"></div>
-
-        <!-- OFFER -->
-        <section class="offer">
-
-            <div class="offer-small">WE OFFER</div>
-
-            <div class="main-title">
-                MOTORCYCLES
-            </div>
-
-            <div class="loan-title">
-                FOR LOAN
-            </div>
-
-            <div class="slogan">
-                RIDE TODAY, PAY EASY!
-            </div>
-
-        </section>
-
-        <!-- LOAN CARDS -->
-        <section class="loan-options">
-
-            <div class="loan-card">
-
-                <div class="card-heading green-heading">
-                    150cc
-                </div>
-
-                <div class="deposit-label">
-                    DEPOSIT
-                </div>
-
-                <div class="deposit green-text">
-                    $275
-                    <span class="percent">25%</span>
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="installment-label">
-                    INSTALLMENTS
-                </div>
-
-                <div class="monthly green-text">
-                    $77
-                </div>
-
-                <div class="period green-period">
-                    FOR 18 MONTHS
-                </div>
-
-            </div>
-
-
-            <div class="loan-card red">
-
-                <div class="card-heading red-heading">
-                    125cc
-                </div>
-
-                <div class="deposit-label">
-                    DEPOSIT
-                </div>
-
-                <div class="deposit red-text">
-                    $230
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="installment-label">
-                    INSTALLMENTS
-                </div>
-
-                <div class="monthly red-text">
-                    $65
-                </div>
-
-                <div class="period red-period">
-                    FOR 18 MONTHS
-                </div>
-
-            </div>
-
-
-            <div class="loan-card blue">
-
-                <div class="card-heading blue-heading">
-                    100cc
-                </div>
-
-                <div class="deposit-label">
-                    DEPOSIT
-                </div>
-
-                <div class="deposit blue-text">
-                    $205
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="installment-label">
-                    INSTALLMENTS
-                </div>
-
-                <div class="monthly blue-text">
-                    $55
-                </div>
-
-                <div class="period blue-period">
-                    FOR 18 MONTHS
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MONTHLY INSTALLMENTS -->
-        <div class="section-title">
-            MONTHLY INSTALLMENTS
+            <button class="apply-btn" id="applyBtn">APPLY NOW</button>
         </div>
-
-
-        <section class="installments">
-
-            <div class="installment-row">
-
-                <div class="bike-mini green-text">
-                    <div class="mini-circle">🏍</div>
-                    <strong>150cc</strong>
-                </div>
-
-                <div class="row-value green-text">
-                    <span class="row-label">DEPOSIT</span>
-                    <span class="row-money">$275</span>
-                </div>
-
-                <div class="row-period">
-                    18 MONTHS
-                </div>
-
-                <div class="row-month green-text">
-                    $77
-                    <small>PER MONTH</small>
-                </div>
-
-            </div>
-
-
-            <div class="installment-row red-row">
-
-                <div class="bike-mini red-text">
-                    <div class="mini-circle">🏍</div>
-                    <strong>125cc</strong>
-                </div>
-
-                <div class="row-value red-text">
-                    <span class="row-label">DEPOSIT</span>
-                    <span class="row-money">$230</span>
-                </div>
-
-                <div class="row-period">
-                    18 MONTHS
-                </div>
-
-                <div class="row-month red-text">
-                    $65
-                    <small>PER MONTH</small>
-                </div>
-
-            </div>
-
-
-            <div class="installment-row blue-row">
-
-                <div class="bike-mini blue-text">
-                    <div class="mini-circle">🏍</div>
-                    <strong>100cc</strong>
-                </div>
-
-                <div class="row-value blue-text">
-                    <span class="row-label">DEPOSIT</span>
-                    <span class="row-money">$205</span>
-                </div>
-
-                <div class="row-period">
-                    18 MONTHS
-                </div>
-
-                <div class="row-month blue-text">
-                    $55
-                    <small>PER MONTH</small>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MOTORCYCLES -->
-        <section class="motorcycles">
-
-            <!-- 150cc -->
-            <div class="motorcycle-card">
-
-                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3z57TyIgoP1wtvECnL9jDA-Oehll9YpS4J58SWFQOg&s=10" target="_blank">
-
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ3z57TyIgoP1wtvECnL9jDA-Oehll9YpS4J58SWFQOg&s=10" alt="150cc Motorcycle">
-
-                </a>
-
-                <div class="cc-label green-cc">
-                    150cc
-                </div>
-
-            </div>
-
-
-            <!-- 125cc -->
-            <div class="motorcycle-card red-bike">
-
-                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4H1vlDuM6mmTxL_ShvDMXworw6DJwxmMbS8o_ewyug&s=10" target="_blank">
-
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4H1vlDuM6mmTxL_ShvDMXworw6DJwxmMbS8o_ewyug&s=10" alt="125cc Motorcycle">
-
-                </a>
-
-                <div class="cc-label red-cc">
-                    125cc
-                </div>
-
-            </div>
-
-
-            <!-- 100cc -->
-            <div class="motorcycle-card blue-bike">
-
-                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BfBIsONU0KXcwLmQgpIW0tb5PWHaOvnhO-29fuJWbA&s=10" target="_blank">
-
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BfBIsONU0KXcwLmQgpIW0tb5PWHaOvnhO-29fuJWbA&s=10" alt="100cc Motorcycle">
-
-                </a>
-
-                <div class="cc-label blue-cc">
-                    100cc
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FEATURES -->
-        <section class="features">
-
+        <div class="features">
             <div class="feature">
-                <div class="feature-icon">🤝</div>
-                <h3>EASY TERMS</h3>
-                <p>Flexible repayment options</p>
-            </div>
-
+                <div class="feature-icon">⚡</div>Fast Approval<br>Within 24 hours</div>
             <div class="feature">
-                <div class="feature-icon">⏱</div>
-                <h3>QUICK APPROVAL</h3>
-                <p>Get approved in no time</p>
-            </div>
-
+                <div class="feature-icon">💰</div>Low Rates<br>From 8%</div>
             <div class="feature">
-                <div class="feature-icon">🏍</div>
-                <h3>QUALITY BIKES</h3>
-                <p>Reliable, durable and fuel efficient</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <h3>RIDE TODAY</h3>
-                <p>Pay easy, ride easy</p>
-            </div>
-
-        </section>
-
-
-        <!-- CTA -->
-        <section class="cta">
-
-            <div class="cta-main">
-                YOUR DREAM BIKE
-                <span>IS JUST A LOAN AWAY!</span>
-
-                <span class="approved">
-                APPROVED<br>
-                APPLY NOW
-            </span>
-            </div>
-
-        </section>
-
-    </div>
-
-
-    <!-- APPLY BUTTON -->
-    <button class="apply-btn" onclick="applyNow()">
-    APPLY NOW
-</button>
-
-
+                <div class="feature-icon">🔒</div>Secure<br>Bank-level</div>
+        </div>
+    </main>
+    <footer>© 2025 EcoCash</footer>
     <script>
-        function applyNow() {
+        const amountSlider = document.getElementById('amountSlider');
+        const termSlider = document.getElementById('termSlider');
+        const amountValue = document.getElementById('amountValue');
+        const termValue = document.getElementById('termValue');
+        const paymentAmount = document.getElementById('paymentAmount');
 
-            // Change this URL to your application page
-            window.location.href = "apply.html";
-
+        function updateCalculator() {
+            const amount = parseFloat(amountSlider.value);
+            const months = parseFloat(termSlider.value);
+            amountValue.textContent = '$' + amount.toLocaleString();
+            termValue.textContent = months + (months === 1 ? ' month' : ' months');
+            const annualRate = 0.08;
+            const monthlyRate = annualRate / 12;
+            if (months === 0) {
+                paymentAmount.textContent = '$' + amount.toFixed(2);
+            } else {
+                const power = Math.pow(1 + monthlyRate, months);
+                const monthlyPayment = amount * (monthlyRate * power) / (power - 1);
+                paymentAmount.textContent = '$' + monthlyPayment.toFixed(2);
+            }
         }
+        updateCalculator();
+        amountSlider.addEventListener('input', updateCalculator);
+        termSlider.addEventListener('input', updateCalculator);
+        document.getElementById('applyBtn').addEventListener('click', function() {
+            localStorage.setItem('loanAmount', amountSlider.value);
+            localStorage.setItem('loanTerm', termSlider.value);
+            window.location.href = 'application.html';
+        });
     </script>
-
 </body>
 
 </html>
